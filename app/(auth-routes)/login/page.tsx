@@ -1,8 +1,8 @@
 'use client'
 
 import { Button, Link, Card, CardHeader, CardFooter } from "@nextui-org/react"
-import { GoogleIcon } from "../_icons/_googleIcon"
-import { signIn, signOut } from "next-auth/react"
+import { GoogleIcon } from "../../_icons/_googleIcon"
+import { signIn } from "next-auth/react"
 
 export default function Login() {
     return (

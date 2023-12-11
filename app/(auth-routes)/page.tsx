@@ -14,7 +14,6 @@ export default function Home() {
     <>
       <header className='w-screen p-4 fixed flex items-center justify-end gap-3'>
         <Button onClick={() => handleNavClick('/login')} color='primary'>Entrar</Button>
-        <Button onClick={() => handleNavClick('/signup')} color='primary' variant="bordered">Registrar</Button>
       </header>
 
       <main className="flex min-h-screen flex-col items-center justify-center">

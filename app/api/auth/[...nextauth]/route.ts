@@ -7,21 +7,27 @@ const nextAuthOptions: NextAuthOptions = {
         GoogleProvider(<OAuthUserConfig<any>> {
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            /*authorization: {
+            authorization: {
                 params: {
-                    prompt: "consent",
-                    access_type: "offline",
-                    response_type: "code"
+                  prompt: "consent",
+                  access_type: "offline",
+                  response_type: "code"
                 }
             },
-            callbacks: {
-                async session() {
-                  
-                },
-            }*/
+
+            async authorize() {
+                const response = await fetch('http://localhost:3000/api/auth/signin')
+                const user = await response.json()
+
+                if (user && response.ok) {
+                    return user
+                }
+
+                return null
+            }
         })
     ],
-    secret: process.env.SECRET
+    secret: process.env.SECRET,
 }
 
 const handler = NextAuth(nextAuthOptions)
