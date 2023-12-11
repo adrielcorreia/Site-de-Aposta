@@ -2,7 +2,6 @@
 
 import { Button} from '@nextui-org/react'
 import { useRouter } from 'next/navigation'
-import { getSession } from 'next-auth/react'
 
 export default function Home() {
   const router = useRouter()
@@ -12,13 +11,17 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-end justify-start">
-      <div className='flex justify-between p-5 gap-3'>
-
+    <>
+      <header className='w-screen p-4 fixed flex items-center justify-end gap-3'>
         <Button onClick={() => handleNavClick('/login')} color='primary'>Entrar</Button>
         <Button onClick={() => handleNavClick('/signup')} color='primary' variant="bordered">Registrar</Button>
+      </header>
 
-      </div>
-    </main>
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <div className='flex items-center justify-center p-5 gap-3'>
+          <p className='text-xl'>Você ainda não está logado.</p>
+        </div>
+      </main>
+    </>
   )
 }
