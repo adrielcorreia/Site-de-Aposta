@@ -1,4 +1,4 @@
-'use client'
+
 import React, { useState } from 'react';
 import "../components/styles/event.css";
 
@@ -48,12 +48,19 @@ const EventForm = () => {
       </div>
       {/* Campo para o valor do bilhete (input numérico) */}
       <div>
-        <label>Valor do Bilhete:</label>
-        <input type="number" value={ticketValue} onChange={(e) => setTicketValue(e.target.value)} />
+      <label>Valor do Bilhete:</label>
+        <input
+          type="number"
+          value={ticketValue}
+          onChange={(e) => setTicketValue(e.target.value)}
+        />
+        {/* Exibe o valor do bilhete formatado como moeda brasileira */}
+        <span>{parseFloat(ticketValue).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
       </div>
-      {/* Botão de envio do formulário */}
       <button type="submit">enviar</button>
     </form>
   );
 };
+
 export default EventForm;
+

@@ -1,4 +1,4 @@
-'use client'
+
 import React, { useState } from 'react';
 import '../components/styles/event2.css'
 
