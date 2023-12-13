@@ -2,7 +2,7 @@
 import React, { createContext, useState, useRef } from "react";
 import {Button} from "@nextui-org/react";
 import TextArea from './textArea'
-import '../components_css.css'
+import '../components/components_css.css'
 
 export default function Payment_bet() {    
      return (

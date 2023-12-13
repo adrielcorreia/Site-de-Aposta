@@ -3,7 +3,7 @@ import {Textarea} from "@nextui-org/react";
 import {Select, SelectItem} from "@nextui-org/react";
 import {months} from "./data";
 import {years} from "./data2";
-import '../components_css.css'
+import '../components/components_css.css'
 
 export default function TextArea() {
 
