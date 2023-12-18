@@ -27,8 +27,24 @@ export default function Perfil(props: {src: string, name: string}) {
             </DropdownTrigger>
 
             <DropdownMenu>
-                <DropdownItem className="text-black opacity-100" key="name">Configurações</DropdownItem>
-                <DropdownItem onClick={logout} key="delete" className="text-danger" color="danger">Sair</DropdownItem>
+
+                <DropdownItem 
+                    className="text-black opacity-100" 
+                    key="config"
+                    showDivider
+                >
+                    Configurações
+                </DropdownItem>
+
+                <DropdownItem 
+                    onClick={logout} 
+                    key="logout" 
+                    className="text-danger" 
+                    color="danger"
+                >
+                    Sair
+                </DropdownItem>
+
             </DropdownMenu>
         </Dropdown>
     )
