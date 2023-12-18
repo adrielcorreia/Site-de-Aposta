@@ -13,7 +13,7 @@ export default function Login() {
                 </CardHeader>
                 
                 <div>
-                    <Button onClick={() => signIn('google', {callbackUrl: '/admin'})} startContent={<GoogleIcon/>} variant="bordered" className="p-6 text-xl rounded w-full">Entrar com o Google</Button>
+                    <Button onClick={() => signIn('google', {callbackUrl: '/login'})} startContent={<GoogleIcon/>} variant="bordered" className="p-6 text-xl rounded w-full">Entrar com o Google</Button>
 
                     <CardFooter className="justify-center">
                         <Link href="/">Voltar para página inicial</Link>
