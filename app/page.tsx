@@ -4,29 +4,18 @@ import { Button } from '@nextui-org/react'
 import React from 'react';
 import EventForm from './components/make-a-event';
 import '../app/components/styles/event.css'
-import MakeAEvent2 from '../app/components/make-a-event2';
-import MakeAEvent3 from '../app/components/make-a-event3';
-import MakeAEvent4 from '../app/components/make-a-event4';
+import GerenciadorPremios from './components/Gerenciador';
+import MakeAEventOpcoes from './components/MakeAEventOpcoes';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="max-w-screen-xl mx-auto items-center justify-center p-24">
       <div>
-        <h1>dados basicos</h1>
-        <EventForm />
-      </div>
-      <div>
-        <h1>dados basicos</h1>
-        <MakeAEvent2 />
-      </div>
-      <div>
-        <h1>opções</h1>
-        <MakeAEvent3/>
-      </div>
-      <div>
-        <h1>modelos</h1>
-        <MakeAEvent4/>
+        <h1 className='text-black font-inter text-3xl font-bold leading-normal'>Dados Basicos</h1>
+        <h3 className='text-black font-inter font-normal text-opacity-60 leading-normal'>Insira os dados de como deseja a sua campanha abaixo:</h3>
+       <EventForm/>
       </div>
     </main>
   );
 }
+
