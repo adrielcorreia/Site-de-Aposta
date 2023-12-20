@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {  Providers } from "./providers";
-import { SessionProvider } from "next-auth/react"
 import { AppProps } from 'next/app';
 import './globals.css'
+import Footer from './_components/footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +19,8 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <Providers>
           {children}
         </Providers>
+
+        <Footer />
       </body>
     </html>
   );

@@ -17,35 +17,37 @@ export default function Perfil(props: {src: string, name: string}) {
     }
 
     return (
-        <Dropdown>
-            <DropdownTrigger>
-                <div className="transition bg-slate-200 p-2 px-5 flex items-center justify-center gap-10 rounded-xl " style={{cursor: 'pointer'}}>
-                    <h1>{props.name}</h1>
-                    <Avatar className="transition-transform" size="lg" src={props.src} />
-                </div>
-                
-            </DropdownTrigger>
+        <div className="flex items-center justify-center gap-10">
+            <Dropdown>
+                <DropdownTrigger>
+                    <div className="transition bg-gray-200 p-2 px-5 flex items-center justify-center gap-10 rounded-xl " style={{cursor: 'pointer'}}>
+                        <h1>{props.name}</h1>
+                        <Avatar className="transition-transform" size="lg" src={props.src} />
+                    </div>
+                    
+                </DropdownTrigger>
 
-            <DropdownMenu>
+                <DropdownMenu>
 
-                <DropdownItem 
-                    className="text-black opacity-100" 
-                    key="config"
-                    showDivider
-                >
-                    Configurações
-                </DropdownItem>
+                    <DropdownItem 
+                        className="text-black opacity-100" 
+                        key="config"
+                        showDivider
+                    >
+                        Configurações
+                    </DropdownItem>
 
-                <DropdownItem 
-                    onClick={logout} 
-                    key="logout" 
-                    className="text-danger" 
-                    color="danger"
-                >
-                    Sair
-                </DropdownItem>
+                    <DropdownItem 
+                        onClick={logout} 
+                        key="logout" 
+                        className="text-danger" 
+                        color="danger"
+                    >
+                        Sair
+                    </DropdownItem>
 
-            </DropdownMenu>
-        </Dropdown>
+                </DropdownMenu>
+            </Dropdown>
+        </div>
     )
 }

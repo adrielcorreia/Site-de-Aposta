@@ -2,6 +2,8 @@ import { getServerSession } from "next-auth";
 import { ReactNode } from "react";
 import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import Perfil from "../_components/perfilButton";
+import HeaderWithAuth from "../_components/headerWithAuth";
 
 interface PrivateLayoutProps {
     children: ReactNode
@@ -15,6 +17,13 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
     }
 
     return (
-        <>{children}</>
+        <>
+            <HeaderWithAuth name={`${session?.user.name}`} src={`${session?.user.image}`} />
+
+            <main className="max-w-screen">{children}</main>
+
+            <footer></footer>
+        </>
+        
     )
 }
