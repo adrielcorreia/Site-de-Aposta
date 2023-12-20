@@ -1,11 +1,8 @@
 'use client'
 // Breadcrumbs.tsx
-import React from 'react';
-import { useRouter } from 'next/router';
-
-const Breadcrumbs: React.FC = () => {
-  const router = useRouter();
-  const pathSegments = router.asPath.split('/').filter((segment) => segment !== '');
+function Breadcrumbs() {
+  const pathname = usePathname();
+  const pathSegments = pathname.split('/').filter(segment => segment !== '');
 
   return (
     <div style={{ marginBottom: '10px' }}>
@@ -19,6 +16,4 @@ const Breadcrumbs: React.FC = () => {
       ))}
     </div>
   );
-};
-
-export default Breadcrumbs;
+}
