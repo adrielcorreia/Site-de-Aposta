@@ -1,11 +1,13 @@
-import { Avatar } from "@nextui-org/react";
-
+import { Avatar, Button, Link } from "@nextui-org/react"
+import { FacebookIcon } from "../_icons/facebookIcon"
+import { InstagramIcon } from "../_icons/instagramIcon"
+import { TwitterIcon } from "../_icons/twitterIcon"
 
 export default function Footer() {
     return (
         <footer className="min-w-screen p-14 pb-5 bg-gray-100">
             <div className="flex justify-between">
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col justify-center items-start gap-8">
                     <Avatar size="lg" src="/logo.jpeg" />
 
                     <span>
@@ -15,10 +17,18 @@ export default function Footer() {
                         assumenda saepe, sint ipsum sapiente quas?
                     </span>
 
-                    <div className="flex gap-7 w-2/6 justify-center">
-                        <p>F</p>
-                        <p>I</p>
-                        <p>X</p>
+                    <div className="flex gap-2 justify-start">
+                        <Button variant="light" isIconOnly radius="sm" >
+                            <FacebookIcon /> 
+                        </Button>
+
+                        <Button variant="light" isIconOnly radius="sm" >
+                            <InstagramIcon />
+                        </Button>
+
+                        <Button variant="light" isIconOnly radius="sm" >
+                            <TwitterIcon />
+                        </Button>
                     </div>
                 </div>
 
@@ -27,24 +37,24 @@ export default function Footer() {
                     <div className="flex flex-col gap-3 w-100">
                         <h1 className="text-xl font-bold">Páginas</h1>
                         
-                        <p>Home</p>
-                        <p>Sobre nós</p>
-                        <p>Termos de uso</p>
-                        <p>Política de privacidade</p>
+                        <Link href='/'>Home</Link>
+                        <Link href='/about' >Sobre nós</Link>
+                        <Link href='' >Termos de uso</Link>
+                        <Link href='' >Política de privacidade</Link>
                     </div>
 
                     <div className="flex flex-col gap-3">
                         <h1 className="text-xl font-bold">Ajuda</h1>
                         
-                        <p>Central de ajuda</p>
-                        <p>Dúvidas frequentes</p>
+                        <Link href='' >Central de ajuda</Link>
+                        <Link href='' >Dúvidas frequentes</Link>
                     </div>
 
                     <div className="flex flex-col gap-3">
                         <h1 className="text-xl font-bold">Contato</h1>
                         
-                        <p>(XX) XXXXX-XXXX</p>
-                        <p>email@softex.com</p>
+                        <Link href='' >(XX) XXXXX-XXXX</Link>
+                        <Link href='' >email@softex.com</Link>
                     </div>
                 </div>
             </div>
