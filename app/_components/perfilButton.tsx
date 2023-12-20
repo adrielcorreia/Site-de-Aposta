@@ -16,6 +16,10 @@ export default function Perfil(props: {src: string, name: string}) {
         router.replace('/')
     }
 
+    function config(route: string) {
+        router.push(route)
+    }
+
     return (
         <div className="flex items-center justify-center gap-10">
             <Dropdown>
@@ -30,6 +34,7 @@ export default function Perfil(props: {src: string, name: string}) {
                 <DropdownMenu>
 
                     <DropdownItem 
+                        onClick={() => config('/config')}
                         className="text-black opacity-100" 
                         key="config"
                         showDivider
