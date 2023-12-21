@@ -4,6 +4,7 @@ import PremiosForm from './PremiosForm';
 interface Premio {
   nomePremio: string;
   descricaoPremio: string;
+  coverPhotoUrl?: string;
 }
 
 const GerenciadorPremios: React.FC = () => {
@@ -11,12 +12,6 @@ const GerenciadorPremios: React.FC = () => {
 
   const adicionarPremio = (novoPremio: Premio) => {
     setPremios([...premios, novoPremio]);
-  };
-
-  const excluirPremio = (index: number) => {
-    const novaListaPremios = [...premios];
-    novaListaPremios.splice(index, 1);
-    setPremios(novaListaPremios);
   };
 
   return (
@@ -28,14 +23,18 @@ const GerenciadorPremios: React.FC = () => {
         <h2 className="text-2xl font-semibold mb-2">Lista de Prêmios</h2>
         <ul>
           {premios.map((premio, index) => (
-            <li key={index} className="mb-2">
-              {premio.nomePremio} - {premio.descricaoPremio}
-              <button
-                onClick={() => excluirPremio(index)}
-                className="ml-2 px-3 py-1 bg-red-500 text-white rounded-md"
-              >
-                Excluir
-              </button>
+            <li key={index} className="mb-4">
+              <div>
+                <strong>{premio.nomePremio}</strong>
+                <p>{premio.descricaoPremio}</p>
+                {premio.coverPhotoUrl && (
+                  <img
+                    src={premio.coverPhotoUrl}
+                    alt={`Capa do Prêmio ${premio.nomePremio}`}
+                    className="mx-auto h-24 w-24 rounded-full object-cover mt-2"
+                  />
+                )}
+              </div>
             </li>
           ))}
         </ul>

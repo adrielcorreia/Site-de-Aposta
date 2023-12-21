@@ -1,19 +1,18 @@
-'use client'
-// Breadcrumbs.tsx
+import { usePathname } from "next/navigation";
+
 function Breadcrumbs() {
   const pathname = usePathname();
   const pathSegments = pathname.split('/').filter(segment => segment !== '');
 
   return (
-    <div style={{ marginBottom: '10px' }}>
+    <nav className="flex gap-2">
       {pathSegments.map((segment, index) => (
         <span key={index}>
-          <span style={{ fontWeight: index === pathSegments.length - 1 ? 'bold' : 'normal' }}>
-            {segment}
-          </span>
-          {index < pathSegments.length - 1 && <span> &gt; </span>}
+          {segment}
         </span>
       ))}
-    </div>
+    </nav>
   );
 }
+
+export default Breadcrumbs;
