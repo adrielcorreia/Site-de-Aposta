@@ -1,44 +1,44 @@
-import React, { useState } from 'react';
-import PremiosForm from './PremiosForm';
+import React from 'react';
 
 interface Premio {
+  id: number;
   nomePremio: string;
   descricaoPremio: string;
   coverPhotoUrl?: string;
 }
 
-const GerenciadorPremios: React.FC = () => {
-  const [premios, setPremios] = useState<Premio[]>([]);
+interface GerenciadorPremiosProps {
+  premios: Premio[];
+  excluirPremio: (id: number) => void;
+}
 
-  const adicionarPremio = (novoPremio: Premio) => {
-    setPremios([...premios, novoPremio]);
-  };
-
+const GerenciadorPremios: React.FC<GerenciadorPremiosProps> = ({ premios, excluirPremio }) => {
   return (
-    <div className="text-center">
-      <h1 className="text-4xl font-bold mb-6">Gerenciador de Prêmios</h1>
-      <PremiosForm adicionarPremio={adicionarPremio} />
+    <div>
+      <h2 className="text-lg font-semibold mb-2 text-black">Lista de Prêmios</h2>
 
-      <div className="mt-6">
-        <h2 className="text-2xl font-semibold mb-2">Lista de Prêmios</h2>
-        <ul>
-          {premios.map((premio, index) => (
-            <li key={index} className="mb-4">
-              <div>
-                <strong>{premio.nomePremio}</strong>
-                <p>{premio.descricaoPremio}</p>
-                {premio.coverPhotoUrl && (
-                  <img
-                    src={premio.coverPhotoUrl}
-                    alt={`Capa do Prêmio ${premio.nomePremio}`}
-                    className="mx-auto h-24 w-24 rounded-full object-cover mt-2"
-                  />
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {premios.map((premio) => (
+        <div key={premio.id} className="mb-4 border p-4 rounded">
+          <div className="mb-2">
+            <span className="font-bold text-black">Nome do Prêmio:</span> {premio.nomePremio}
+          </div>
+          <div className="mb-2">
+            <span className="font-bold text-black">Descrição:</span> {premio.descricaoPremio}
+          </div>
+          {premio.coverPhotoUrl && (
+            <div className="mb-2">
+              <span className="font-bold">Foto:</span>
+              <img src={premio.coverPhotoUrl} alt="Foto do prêmio" className="w-32 h-32" />
+            </div>
+          )}
+          <button
+            onClick={() => excluirPremio(premio.id)}
+            className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+          >
+            Excluir
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

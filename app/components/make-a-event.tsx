@@ -36,7 +36,7 @@ export default function EventForm() {
   ];
 
   return (
-    <div className="layout p-8 rounded-lg border border-black border-opacity-30">
+    <div className="layout p-8  shadow-md rounded-lg border border-blue-500 border-opacity-30">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="title" className="block mb-2 text-black font-inter text-lg">
@@ -47,7 +47,7 @@ export default function EventForm() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border border-black border-opacity-30 rounded text-black"
+            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
@@ -80,12 +80,12 @@ export default function EventForm() {
               id="phoneNumber"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className="w-full p-2 pl-20 border border-black border-opacity-30 rounded text-black focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            />
+              className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            /> 
           </div>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label htmlFor="category" className="block mb-2 text-black font-inter text-lg">
             Categoria do Evento:
           </label>
@@ -93,7 +93,7 @@ export default function EventForm() {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full p-2 border border-black border-opacity-30 rounded text-black"
+            className="w-full p-2 border shadow-md focus:outline-none focus:border-blue-500 rounded text-black "
           >
             <option value="">Selecione uma categoria</option>
             <option value="categoria1">Categoria 1</option>
@@ -111,7 +111,7 @@ export default function EventForm() {
               id="numericValue"
               value={numericValue}
               onChange={(e) => setNumericValue(e.target.value)}
-              className="w-full p-2 border border-black border-opacity-30 rounded text-black"
+              className="w-full p-2 border rounded shadow-md text-black focus:outline-none focus:border-blue-500"
             />
           </div>
           <div>
@@ -123,7 +123,7 @@ export default function EventForm() {
               id="ticketValue"
               value={ticketValue}
               onChange={(e) => setTicketValue(e.target.value)}
-              className="w-full p-2 border border-black border-opacity-30 rounded text-black"
+              className="w-full p-2 border rounded shadow-md text-black focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>

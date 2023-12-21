@@ -1,7 +1,9 @@
 'use client'
 import React, { useState } from 'react';
+import Link from 'next/link';
 import PremiosForm from '../components/PremiosForm';
 import '../components/styles/event.css';
+import { Button } from '@nextui-org/react';
 
 interface Premio {
   nomePremio: string;
@@ -24,7 +26,15 @@ export default function Home() {
           Insira um ou mais prêmios que os ganhadores serão contemplados:
         </h3>
         <PremiosForm adicionarPremio={adicionarPremio} />
-      </div>
+       <div className='grid grid-cols-2 gap-4 '>
+      <div className='bg-red-500 rounded-md shadow-md p-2 transition-transform duration-300 transform hover:scale-105 '>
+        <Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page4">Ver Lista de Prêmios</Link>
+     </div>
+     <div className='bg-blue-500 rounded-md shadow-md p-2 transition-transform duration-300 transform hover:scale-105'>
+        <Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page3">Próxima Página</Link>
+     </div>
+     </div>
+    </div>
     </main>
   );
 }

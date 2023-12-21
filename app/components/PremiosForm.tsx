@@ -1,5 +1,7 @@
-import React, { useState, ChangeEventHandler } from 'react';
+import React, { useState, ChangeEventHandler, FormEvent } from 'react';
 import { Button } from '@nextui-org/react';
+
+
 
 interface PremiosFormProps {
   adicionarPremio: (novoPremio: any) => void;
@@ -11,10 +13,13 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
   const [coverPhoto, setCoverPhoto] = useState<File | null>(null);
   const [coverPhotoUrl, setCoverPhotoUrl] = useState<string | undefined>(undefined);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
     if (nomePremio && descricaoPremio && coverPhoto) {
-      const novoPremio = { nomePremio, descricaoPremio, coverPhotoUrl };
+      const novoPremio = { nomePremio, descricaoPremio, coverPhoto };
       adicionarPremio(novoPremio);
       setNomePremio('');
       setDescricaoPremio('');
@@ -36,7 +41,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
   };
 
   return (
-    <div className="layout p-8 rounded-lg border border-black border-opacity-30">
+    <div className="layout p-8  shadow-md rounded-lg border border-blue-500 border-opacity-30">
       <form onSubmit={handleSubmit} className="">
         <div className="mb-4">
           <label className="block mb-2 text-black font-inter text-lg">Nome do Prêmio:</label>
@@ -44,22 +49,20 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
             type="text"
             value={nomePremio}
             onChange={(e) => setNomePremio(e.target.value)}
-            className="w-full p-2 border border-black border-opacity-30 rounded text-black"
-            style={{ background: 'rgba(217, 217, 217, 0.30)' }}
+            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label className="block mb-2 text-black font-inter text-lg">Descrição do Prêmio:</label>
           <textarea
             value={descricaoPremio}
             onChange={(e) => setDescricaoPremio(e.target.value)}
-            className="w-full p-2 border border-black border-opacity-30 rounded text-black"
-            style={{ background: 'rgba(217, 217, 217, 0.30)' }}
+            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 rounded-md shadow-md p-4 bg-white">
           <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
             Capa do prêmio
           </label>
@@ -107,6 +110,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
         >
           Enviar
         </Button>
+        
       </form>
     </div>
   );
