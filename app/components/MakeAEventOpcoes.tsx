@@ -34,7 +34,7 @@ const MakeAEvent4: React.FC = () => {
   };
 
   return (
-    <div className="layout p-8  shadow-md rounded-lg border border-blue-500 border-opacity-30">
+    <div className="layout p-8 bg-white  shadow-md rounded-lg border border-blue-500 border-opacity-30">
       <h1 className="text-3xl font-bold mb-4 text-black">Sorteio</h1>
 
       {/* MakeAEvent3 Form */}
@@ -42,7 +42,7 @@ const MakeAEvent4: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-start mb-4">
           {/* Bilhetes Escolhidos */}
           <div className="w-full md:w-1/2 mb-4 md:mb-0">
-            <div className="rounded-md shadow-md p-4 bg-white">
+            <div className="rounded-md shadow-md p-4 bg-gray-200 ">
               <h2 className="text-xl font-semibold mb-2 text-black">Bilhetes Escolhidos</h2>
               <div className="grid grid-cols-5 gap-4">
                 {[...Array(totalBilhetes)].map((_, index) => (
@@ -51,7 +51,7 @@ const MakeAEvent4: React.FC = () => {
                     className={`${
                       bilhetesEscolhidos.includes(index + 1)
                         ? 'bg-blue-500 text-white'
-                        : 'bg-gray-200 text-gray-700'
+                        : 'bg-white text-gray-700'
                     } px-4 py-2 rounded cursor-pointer`}
                     onClick={() => handleEscolherBilhete(index + 1)}
                   >
@@ -72,7 +72,7 @@ const MakeAEvent4: React.FC = () => {
                 onChange={handleDrawDateChange}
                 showTimeSelect
                 dateFormat="Pp"
-                className="border shadow-md border-gray-400 p-2 text-black"
+                className="border bg-gray-200 shadow-md border-gray-400 p-2 text-black"
               />
             </div>
 
@@ -83,7 +83,7 @@ const MakeAEvent4: React.FC = () => {
                 onChange={handleDrawDateChange}
                 showTimeSelect
                 dateFormat="Pp"
-                className="border shadow-md border-gray-400 p-2 text-black"
+                className="border bg-gray-200 shadow-md border-gray-400 p-2 text-black"
               />
             </div>
             <button

@@ -1,10 +1,15 @@
 import React, { useState, ChangeEventHandler, FormEvent } from 'react';
 import { Button } from '@nextui-org/react';
 
-
+interface Premio {
+  id: number;
+  nomePremio: string;
+  descricaoPremio: string;
+  coverPhotoUrl?: string;
+}
 
 interface PremiosFormProps {
-  adicionarPremio: (novoPremio: any) => void;
+  adicionarPremio: (novoPremio: Premio) => void;
 }
 
 const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
@@ -13,20 +18,24 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
   const [coverPhoto, setCoverPhoto] = useState<File | null>(null);
   const [coverPhotoUrl, setCoverPhotoUrl] = useState<string | undefined>(undefined);
 
-  
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     if (nomePremio && descricaoPremio && coverPhoto) {
-      const novoPremio = { nomePremio, descricaoPremio, coverPhoto };
+      const novoPremio: Premio = {
+        id: Date.now(), // You might want to use a more robust way to generate IDs
+        nomePremio,
+        descricaoPremio,
+        coverPhotoUrl,
+      };
+
       adicionarPremio(novoPremio);
       setNomePremio('');
       setDescricaoPremio('');
       setCoverPhoto(null);
       setCoverPhotoUrl(undefined);
     } else {
-      console.error("Por favor, preencha todos os campos");
+      console.error('Por favor, preencha todos os campos');
     }
   };
 
@@ -40,8 +49,9 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
     }
   };
 
+
   return (
-    <div className="layout p-8  shadow-md rounded-lg border border-blue-500 border-opacity-30">
+    <div className="layout p-8 bg-white shadow-md rounded-lg border border-blue-500 border-opacity-30">
       <form onSubmit={handleSubmit} className="">
         <div className="mb-4">
           <label className="block mb-2 text-black font-inter text-lg">Nome do Prêmio:</label>
@@ -49,7 +59,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
             type="text"
             value={nomePremio}
             onChange={(e) => setNomePremio(e.target.value)}
-            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            className="w-full p-2 border bg-gray-200  shadow-md rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
@@ -58,11 +68,11 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
           <textarea
             value={descricaoPremio}
             onChange={(e) => setDescricaoPremio(e.target.value)}
-            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            className="w-full p-2 bg-gray-200  border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
-        <div className="mb-4 rounded-md shadow-md p-4 bg-white">
+        <div className="mb-4 rounded-md p-4 bg-blue-200">
           <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
             Capa do prêmio
           </label>
@@ -104,8 +114,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
         </Button>
 
         {/* Botão de Envio */}
-        <Button
-          type="submit"
+        <Button onClick={handleSubmit}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
         >
           Enviar

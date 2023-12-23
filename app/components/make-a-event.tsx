@@ -1,7 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@nextui-org/react';
 import { FiFlag } from 'react-icons/fi';
+
+// Icon component com tipagem explícita
+interface CountryIconProps {
+  code: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const CountryIcon: React.FC<CountryIconProps> = ({ code, label, icon }) => (
+  <div className="flex items-center">
+    {icon} {label}
+  </div>
+);
 
 export default function EventForm() {
   const router = useRouter();
@@ -11,21 +24,25 @@ export default function EventForm() {
   const [category, setCategory] = useState('');
   const [numericValue, setNumericValue] = useState('');
   const [ticketValue, setTicketValue] = useState('');
-  const [country, setCountry] = useState('US'); // Defina um valor padrão para o país
+  const [country, setCountry] = useState('US');
+
+  
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    // Adicione lógica de validação se necessário
+    // Lógica de validação
+    if (!title || !phoneNumber || !category || !numericValue || !ticketValue) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
 
     console.log('Dados do Formulário:', { title, phoneNumber, category, numericValue, ticketValue, country });
-    // Adicione lógica para enviar dados para o servidor se necessário
+    // Lógica para enviar dados para o servidor, se necessário
   };
 
   const handleParticiparClick = () => {
     // Adicione qualquer lógica adicional antes da navegação, se necessário
-
-    // Navegue para a página desejada
     router.push('/page2');
   };
 
@@ -36,8 +53,8 @@ export default function EventForm() {
   ];
 
   return (
-    <div className="layout p-8  shadow-md rounded-lg border border-blue-500 border-opacity-30">
-      <form onSubmit={handleSubmit}>
+    <div className="layout p-8 shadow-md rounded-lg border border-blue-500 border-opacity-30 bg-white text-black">
+      <form onSubmit={handleSubmit} onReset={() => { /* Adicione lógica para redefinir campos */ }}>
         <div className="mb-4">
           <label htmlFor="title" className="block mb-2 text-black font-inter text-lg">
             Título do Evento:
@@ -47,10 +64,11 @@ export default function EventForm() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            className="w-full p-2 border rounded bg-gray-200 shadow-md text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
+        {/* Adicione rótulos explícitos para campos de entrada */}
         <div className="mb-4">
           <label htmlFor="phoneNumber" className="block mb-2 text-black font-inter text-lg">
             Telefone público para contato:
@@ -68,9 +86,9 @@ export default function EventForm() {
                 value={country}
               >
                 {countryOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.icon} {option.label}
-                  </option>
+                 <option key={option.code} value={option.code}>
+                <CountryIcon code={option.code} label={option.label} icon={option.icon} />
+               </option>
                 ))}
               </select>
               <div className="ml-2">{countryOptions.find((option) => option.code === country)?.icon}</div>
@@ -80,12 +98,12 @@ export default function EventForm() {
               id="phoneNumber"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className="w-full p-2 border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
-            /> 
+              className="w-full p-2 border bg-gray-200 shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            />
           </div>
         </div>
 
-        <div className="mb-4 ">
+        <div className="mb-4">
           <label htmlFor="category" className="block mb-2 text-black font-inter text-lg">
             Categoria do Evento:
           </label>
@@ -93,7 +111,7 @@ export default function EventForm() {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full p-2 border shadow-md focus:outline-none focus:border-blue-500 rounded text-black "
+            className="w-full bg-gray-200 p-2 border shadow-md focus:outline-none focus:border-blue-500 rounded text-black"
           >
             <option value="">Selecione uma categoria</option>
             <option value="categoria1">Categoria 1</option>
@@ -111,7 +129,7 @@ export default function EventForm() {
               id="numericValue"
               value={numericValue}
               onChange={(e) => setNumericValue(e.target.value)}
-              className="w-full p-2 border rounded shadow-md text-black focus:outline-none focus:border-blue-500"
+              className="w-full p-2 border rounded bg-gray-200 shadow-md text-black focus:outline-none focus:border-blue-500"
             />
           </div>
           <div>
@@ -123,21 +141,23 @@ export default function EventForm() {
               id="ticketValue"
               value={ticketValue}
               onChange={(e) => setTicketValue(e.target.value)}
-              className="w-full p-2 border rounded shadow-md text-black focus:outline-none focus:border-blue-500"
+              className="w-full p-2 border rounded  bg-gray-200 shadow-md text-black focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>
-
-        <Button type="submit" className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        <Button
+          type="submit"
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        >
           Enviar
         </Button>
         <Button
-          type="button" // Alterado para type="button" já que não é um envio de formulário
+          type="button"
           onClick={handleParticiparClick}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
         >
           Próximo
-        </Button>
+        </Button> 
       </form>
     </div>
   );

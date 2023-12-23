@@ -12,7 +12,7 @@ export default function Home() {
     <main className="max-w-screen-xl mx-auto items-center justify-center p-24">
       <div>
         <h1 className='text-black font-inter text-3xl font-bold leading-normal'>Dados Basicos</h1>
-        <h3 className='text-black font-inter font-normal text-opacity-60 leading-normal'>Insira os dados de como deseja a sua campanha abaixo:</h3>
+        <h3 className='text-black font-inter font-normal text-opacity-80 leading-normal'>Insira os dados de como deseja a sua campanha abaixo:</h3>
        <EventForm/>
       </div>
     </main>

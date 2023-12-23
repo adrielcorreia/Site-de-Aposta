@@ -1,19 +1,17 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import GerenciadorPremios from '../components/Gerenciador';
 import '../components/styles/event.css';
 
-
-
-const ListaPremios: React.FC = () => {
+export default function Home() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-6 text-black">Lista de Prêmios</h1>
+    <main className="max-w-screen-xl mx-auto items-center justify-center p-24">
+      <div>
+      <h1 className='text-black font-inter text-3xl font-bold leading-normal'>lista de premios</h1>
       <GerenciadorPremios premios={[]} excluirPremio={function (id: number): void {
-        throw new Error('função não implementada');
-      } } />
-    </div>
+          throw new Error('Function not implemented.');
+        } }/>
+      </div>
+    </main>
   );
-};
-
-export default ListaPremios;
+}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PremiosForm from '../components/PremiosForm';
 import '../components/styles/event.css';
 import { Button } from '@nextui-org/react';
+import {  GrAdd  } from "react-icons/gr";
 
 interface Premio {
   nomePremio: string;
@@ -20,20 +21,22 @@ export default function Home() {
 
   return (
     <main className="max-w-screen-xl mx-auto items-center justify-center p-24">
+        <div className='flex justify-end items-center w-20 h-20 transition-all duration-200 hover:scale-110'>
+           <Button className="rounded-full bg-blue-500">
+          < GrAdd  className="text-white text-4xl" /><Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page4">Ver Lista de Prêmios</Link>
+          </Button>
+        </div>
       <div>
         <h1 className="text-black font-inter text-3xl font-bold leading-normal">Prêmio(s)</h1>
         <h3 className="text-black font-inter font-normal text-opacity-60 leading-normal">
           Insira um ou mais prêmios que os ganhadores serão contemplados:
-        </h3>
+        </h3>  
         <PremiosForm adicionarPremio={adicionarPremio} />
-       <div className='grid grid-cols-2 gap-4 '>
-      <div className='bg-red-500 rounded-md shadow-md p-2 transition-transform duration-300 transform hover:scale-105 '>
-        <Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page4">Ver Lista de Prêmios</Link>
-     </div>
-     <div className='bg-blue-500 rounded-md shadow-md p-2 transition-transform duration-300 transform hover:scale-105'>
-        <Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page3">Próxima Página</Link>
-     </div>
-     </div>
+        <div className='flex justify-end items-center w-20 h-20 transition-all duration-200 hover:scale-110'>
+           <Button className="rounded-full bg-blue-500">
+           <Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page3">Próxima Página</Link>
+          </Button>
+        </div>
     </div>
     </main>
   );
