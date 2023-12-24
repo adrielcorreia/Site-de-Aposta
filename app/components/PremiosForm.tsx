@@ -17,25 +17,40 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
   const [descricaoPremio, setDescricaoPremio] = useState('');
   const [coverPhoto, setCoverPhoto] = useState<File | null>(null);
   const [coverPhotoUrl, setCoverPhotoUrl] = useState<string | undefined>(undefined);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (nomePremio && descricaoPremio && coverPhoto) {
-      const novoPremio: Premio = {
-        id: Date.now(), // You might want to use a more robust way to generate IDs
-        nomePremio,
-        descricaoPremio,
-        coverPhotoUrl,
-      };
+    try {
+      setLoading(true);
 
-      adicionarPremio(novoPremio);
-      setNomePremio('');
-      setDescricaoPremio('');
-      setCoverPhoto(null);
-      setCoverPhotoUrl(undefined);
-    } else {
-      console.error('Por favor, preencha todos os campos');
+      if (nomePremio && descricaoPremio && coverPhoto) {
+        const novoPremio: Premio = {
+          id: Date.now(),
+          nomePremio,
+          descricaoPremio,
+          coverPhotoUrl,
+        };
+
+        // Simulando uma requisição assíncrona (pode ser uma chamada à API)
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        adicionarPremio(novoPremio);
+        setNomePremio('');
+        setDescricaoPremio('');
+        setCoverPhoto(null);
+        setCoverPhotoUrl(undefined);
+        setError(null);
+      } else {
+        setError('Por favor, preencha todos os campos');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar o formulário', error);
+      setError('Erro ao enviar o formulário. Tente novamente mais tarde.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +64,6 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
     }
   };
 
-
   return (
     <div className="layout p-8 bg-white shadow-md rounded-lg border border-blue-500 border-opacity-30">
       <form onSubmit={handleSubmit} className="">
@@ -59,7 +73,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
             type="text"
             value={nomePremio}
             onChange={(e) => setNomePremio(e.target.value)}
-            className="w-full p-2 border bg-gray-200  shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            className="w-full p-2 border bg-gray-200 rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
@@ -68,58 +82,68 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
           <textarea
             value={descricaoPremio}
             onChange={(e) => setDescricaoPremio(e.target.value)}
-            className="w-full p-2 bg-gray-200  border shadow-md rounded text-black focus:outline-none focus:border-blue-500"
+            className="w-full p-2 bg-gray-200  border  rounded text-black focus:outline-none focus:border-blue-500"
           />
         </div>
 
         <div className="mb-4 rounded-md p-4 bg-blue-200">
-          <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
-            Capa do prêmio
-          </label>
-          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-            <div className="text-center">
-              <img
-                src={coverPhotoUrl}
-                alt="Capa do Prêmio"
-                className="mx-auto h-24 w-24 rounded-full object-cover"
-              />
-              <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                <label
-                  htmlFor="file-upload"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                >
-                  <span>Carregar um arquivo</span>
-                  <input
-                    id="file-upload"
-                    name="file-upload"
-                    type="file"
-                    className="sr-only"
-                    onChange={handleFileChange}
-                  />
-                </label>
-                <p className="pl-1">ou arraste e solte</p>
-              </div>
-              <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF até 10MB</p>
-            </div>
-          </div>
+  <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+    Capa do prêmio
+  </label>
+  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+    {coverPhotoUrl ? (
+      <div className="card">
+        <img
+          src={coverPhotoUrl}
+          alt="Capa do Prêmio"
+          className="w-full h-32 object-cover rounded"
+        />
+        <div className="card-body">
+          <Button
+            type="button"
+            onClick={() => setCoverPhotoUrl(undefined)}
+            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+          >
+            Remover Capa
+          </Button>
         </div>
+      </div>
+    ) : (
+      <div className="text-center">
+        <label
+          htmlFor="file-upload"
+          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+        >
+          <span>Carregar um arquivo</span>
+          <input
+            id="file-upload"
+            name="file-upload"
+            type="file"
+            className="sr-only"
+            onChange={handleFileChange}
+          />
+        </label>
+        <p className="pl-1 text-black">ou arraste e solte</p>
+      </div>
+    )}
+  </div>
+</div>
 
-        {/* Botão para esconder/mostrar a etiqueta da foto da capa do prêmio */}
+        {error && (
+          <div style={{ color: 'red' }} className="mb-4">
+            <p>{error}</p>
+          </div>
+        )}
+
         <Button
-          type="button"
-          onClick={() => setCoverPhotoUrl(undefined)}
-          className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+          type="submit"
+          disabled={loading}
+          className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2 ${
+            loading && 'opacity-50 cursor-not-allowed'
+          }`}
         >
-          Remover Capa
+          {loading ? 'Enviando...' : 'Enviar'}
         </Button>
-
-        {/* Botão de Envio */}
-        <Button onClick={handleSubmit}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
-        >
-          Enviar
-        </Button>
-        
       </form>
     </div>
   );

@@ -42,7 +42,7 @@ const MakeAEvent4: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-start mb-4">
           {/* Bilhetes Escolhidos */}
           <div className="w-full md:w-1/2 mb-4 md:mb-0">
-            <div className="rounded-md shadow-md p-4 bg-gray-200 ">
+            <div className="rounded-md  p-4 bg-gray-200 ">
               <h2 className="text-xl font-semibold mb-2 text-black">Bilhetes Escolhidos</h2>
               <div className="grid grid-cols-5 gap-4">
                 {[...Array(totalBilhetes)].map((_, index) => (
@@ -72,7 +72,7 @@ const MakeAEvent4: React.FC = () => {
                 onChange={handleDrawDateChange}
                 showTimeSelect
                 dateFormat="Pp"
-                className="border bg-gray-200 shadow-md border-gray-400 p-2 text-black"
+                className="border bg-gray-200 border-gray-400 p-2 text-black"
               />
             </div>
 
