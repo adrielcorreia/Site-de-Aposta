@@ -1,68 +1,68 @@
-import Image from 'next/image'
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
-import {AcmeLogo} from "../AcmeLogo.jsx";
-import "../styles/style.css"
+import React from "react";
+import { Navbar, Image, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownTrigger, DropdownItem, DropdownMenu, Dropdown, Avatar } from "@nextui-org/react";
+import { AcmeLogo } from "../AcmeLogo.jsx";
 
 export default function Navbar_1() {
   return (
-    <main>
-
-    <Navbar isBordered  isBlurred={false}>
+    <Navbar shouldHideOnScroll className="bg-white text-black">
       <NavbarBrand>
-        <AcmeLogo />
-        <p className="font-bold text-inherit">Rifacil</p>
+        <Avatar draggable='false' size='lg' src="/logo.jpeg"></Avatar>
+        <p className="font-bold text-inherit">RIFACIL</p>
       </NavbarBrand>
-
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#" className="text-black">
             Eventos
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page" color="secondary">
-            Minhas Apostas
+        <NavbarItem>
+          <Link href="#" aria-current="page" className="text-black">
+            Minhas apostas
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#" className="text-black">
             Meus Eventos
           </Link>
         </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent as="div" justify="end">
-        <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar
-              isBordered
-              as="button"
-              className="transition-transform"
-              color="secondary"
-              name="Jason Hughes"
-              size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        <NavbarItem>
+          <Link color="foreground" href="#" className="text-black relative left-36">
+            <Image         
+              className="w-5 h-5 justify-end"
+              src="https://cdn-icons-png.flaticon.com/512/1827/1827422.png"
             />
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent as="div" justify="end">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button 
+              className="bg-gray-400 justify-end flex gap-3 text-blue-600"
+              size="lg"
+            >
+                Usuario01
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="success"
+                  name="Jason Hughes"
+                  size="sm"
+                  src="https://i.pinimg.com/originals/08/64/0b/08640b34412b64c5be6d0296bc6192cd.png"
+                />
+            </Button>
           </DropdownTrigger>
-          <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
-            </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
+          <DropdownMenu aria-label="Static Actions">
+            <DropdownItem key="new">New file</DropdownItem>
+            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="edit">Edit file</DropdownItem>
+            <DropdownItem key="delete" className="text-danger" color="danger">
+              Delete file
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
     </Navbar>
-
-    </main>
-  )
+  );
 }
