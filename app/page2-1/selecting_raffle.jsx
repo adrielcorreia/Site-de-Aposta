@@ -40,18 +40,18 @@ export default function SelectingRaffle() {
         </CheckboxGroup>
       </div>
       <div className="">
-        <div className="flex mt-4 ml-1 text-default-500 justify-center space-x-4">
+        <div className="flex mt-10 ml-1 text-default-500 justify-center space-x-6">
           <div>
-            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2">Valor do Ticket </p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-6">R$ {raffleValue.toFixed(2)}</p>
+            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-3xl">Valor do Ticket </p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">R$ {raffleValue.toFixed(2)}</p>
           </div>
           <div>
-            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2">Quantidade Selecionada</p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-6">{groupSelected.length}</p>
+            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-3xl">Quantidade</p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">{groupSelected.length}</p>
           </div>
           <div>
-            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2">Total</p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-6">R$ {(groupSelected.length * raffleValue).toFixed(2)}</p>
+            <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-3xl">Total</p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">R$ {(groupSelected.length * raffleValue).toFixed(2)}</p>
           </div>
         </div>
       </div>  

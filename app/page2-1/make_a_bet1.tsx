@@ -20,7 +20,7 @@ export default function Make_a_bet1() {
         <main className="container mx-auto px-20 pt-10">
             <div className="flex flex-row gap-11 grid grid-cols-2 md:grid-cols-2">
                 <div>
-                    <Card shadow="sm" key={1}>
+                    <Card shadow="sm" key={1} id="image_color">
                         <CardBody className="overflow-visible p-0">
                             <Image
                                 isZoomed
@@ -33,27 +33,21 @@ export default function Make_a_bet1() {
                                 />
                         </CardBody>
                         <CardFooter className="justify-between">
-                            <b className="text-sm lg:text-2xl">{'Celtus'}</b>
+                            <b className="text-sm lg:text-2xl text-black">{'Celtus'}</b>
                             <p className="text-default-500 text-sm lg:text-2xl">{'R$ 10'}</p>
                         </CardFooter>  
                     </Card>
                 </div>
-                <div className="flex items-center">
-                    <Textarea
-                        isReadOnly
-                        labelPlacement="outside"
-                        label="Description"
-                        placeholder="Enter your description"
-                        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui nulla, iaculis eu commodo a, imperdiet vel libero. Integer sed ipsum tincidunt, ullamcorper tortor eget, imperdiet lorem. Phasellus facilisis erat vitae nisi lacinia faucibus. Duis sed ipsum feugiat, dictum sapien id, porttitor lorem. Integer ornare sapien quis velit vulputate viverra. Suspendisse ornare scelerisque tellus eget congue. Curabitur auctor nunc eget nisi euismod volutpat. Pellentesque ultricies augue mi, vel pellentesque ante fringilla nec."
-                        className="max-w-screen-xl"
-                    />
-                    <hr />
+                <div className="ml-2">
+                    <h1 className="text-2xl text-black font-bold pb-2">Sorteio Celtus</h1>
+                    <span className="text-black text-xl mt-10">Descrição:</span>
+                    <p className="text-black pt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui nulla, iaculis eu commodo a, imperdiet vel libero. Integer sed ipsum tincidunt, ullamcorper tortor eget, imperdiet lorem. Phasellus facilisis erat vitae nisi lacinia faucibus. Duis sed ipsum feugiat, dictum sapien id, porttitor lorem. Integer ornare sapien quis velit vulputate viverra. Suspendisse ornare scelerisque tellus eget congue. Curabitur auctor nunc eget nisi euismod volutpat. Pellentesque ultricies augue mi, vel pellentesque ante fringilla nec.</p>
                 </div>
             </div>
             <div className="rounded-xl pl-7 mt-10 grid justify-items-stretch">
                 <Selecting_raffle />
                 <Button
-                    className="justify-self-center text-2xl mb-5 mt-5 font-bold ml-1 bg-primary text-white p-2 hover:bg-blue-600"
+                    className="justify-self-center text-2xl mb-20 mt-10 font-bold ml-1 bg-primary text-white p-2 hover:bg-blue-600 w-7/12"
                     onClick={handleParticiparClick} // Adiciona a função de clique
                 >
                     Confirmar Compra

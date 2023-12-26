@@ -1,6 +1,7 @@
 // CustomCheckbox.jsx
 import React from "react";
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
+import './Components_css.css'
 
 const checkbox = tv({
   slots: {
@@ -10,6 +11,9 @@ const checkbox = tv({
     isSelected: {
       true: {
         content: "text-black font-bold", // Adiciona negrito ao texto quando selecionado
+      },
+      false: {
+        content: "text-black font-bold", // Mantém o texto em negrito quando não selecionado
       },
     },
     isHovered: {
@@ -35,30 +39,31 @@ export const CustomCheckbox = ({ label, ...props }) => {
       <Chip
         classNames={{
           base: `
-            bg-white // Alterado para fundo completamente branco
+            bg-white
+            border-white
             rounded-full
             shadow-md
-            ${isSelected ? "bg-primary" : ""}
+            ${isSelected ? "bg-primary border-primary" : ""}
             ${isHovered ? "opacity-80" : ""}
-            rounded-full // Adiciona a classe para tornar o botão circular
-            w-[48px] // Largura definida para 48 pixels
-            h-[48px] // Altura definida para 48 pixels
+            rounded-full
+            w-[48px]
+            h-[48px]
           `,
           content: `
-            text-black // Torna o texto preto
             text-center
+            ${isSelected ? "text-black font-bold" : "text-black font-bold"} // Mantém o texto em negrito quando não selecionado
             ${styles.content()}
             font-size: 16px;
             line-height: 1.5;
-            flex items-center justify-center; // Adiciona as classes para centralizar o conteúdo
+            flex items-center justify-center;
           `,
         }}
         color="primary"
         variant="faded"
-        style={{ flexDirection: "column" }} // Organiza verticalmente os botões
+        style={{ flexDirection: "column" }}
         {...getLabelProps()}
       >
-        {label.padStart(2, '0')} {/* Garante dois dígitos, adicionando zero à esquerda, se necessário */}
+        {label.padStart(2, '0')}
       </Chip>
     </label>
   );
