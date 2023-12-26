@@ -16,13 +16,6 @@ body{
     height: 60px;
     padding-right: 10px;
 }
-
-#button {
-    width: 500px;
-    background-color: #FFB74C;
-    color: white;
-}
-
 .select {
     width: 180px;
 }

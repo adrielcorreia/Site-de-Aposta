@@ -4,35 +4,28 @@ import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
 
 const checkbox = tv({
   slots: {
-    base: "border-default",
     content: "text-default-500",
   },
   variants: {
     isSelected: {
       true: {
-        base: "bg-primary",
-        content: "text-white",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
+        content: "text-black font-bold", // Adiciona negrito ao texto quando selecionado
       },
     },
     isHovered: {
       true: {
-        base: "hover:opacity-80",
+        base: "hover:bg-opacity-80",
       },
     },
   },
 });
 
 export const CustomCheckbox = ({ label, ...props }) => {
-  const { isSelected, isFocusVisible, isHovered, getBaseProps, getLabelProps, getInputProps } = useCheckbox({
+  const { isSelected, isHovered, getBaseProps, getLabelProps, getInputProps } = useCheckbox({
     ...props,
   });
 
-  const styles = checkbox({ isSelected, isFocusVisible, isHovered });
+  const styles = checkbox({ isSelected, isHovered });
 
   return (
     <label {...getBaseProps()}>
@@ -42,24 +35,30 @@ export const CustomCheckbox = ({ label, ...props }) => {
       <Chip
         classNames={{
           base: `
-            bg-white
+            bg-white // Alterado para fundo completamente branco
             rounded-full
             shadow-md
             ${isSelected ? "bg-primary" : ""}
-            ${styles.base()}
             ${isHovered ? "opacity-80" : ""}
+            rounded-full // Adiciona a classe para tornar o botão circular
+            w-[48px] // Largura definida para 48 pixels
+            h-[48px] // Altura definida para 48 pixels
           `,
           content: `
-            text-bold
+            text-black // Torna o texto preto
             text-center
             ${styles.content()}
+            font-size: 16px;
+            line-height: 1.5;
+            flex items-center justify-center; // Adiciona as classes para centralizar o conteúdo
           `,
         }}
         color="primary"
         variant="faded"
+        style={{ flexDirection: "column" }} // Organiza verticalmente os botões
         {...getLabelProps()}
       >
-        {label}
+        {label.padStart(2, '0')} {/* Garante dois dígitos, adicionando zero à esquerda, se necessário */}
       </Chip>
     </label>
   );

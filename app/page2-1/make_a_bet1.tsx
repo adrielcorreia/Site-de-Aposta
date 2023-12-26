@@ -50,14 +50,13 @@ export default function Make_a_bet1() {
                     <hr />
                 </div>
             </div>
-            <div id="rifas" className="rounded-xl pl-7 mt-10 grid justify-items-stretch">
+            <div className="rounded-xl pl-7 mt-10 grid justify-items-stretch">
                 <Selecting_raffle />
                 <Button
-                    className="justify-self-center text-2xl mb-5 mt-5 font-bold"
-                    id="button"
+                    className="justify-self-center text-2xl mb-5 mt-5 font-bold ml-1 bg-primary text-white p-2 hover:bg-blue-600"
                     onClick={handleParticiparClick} // Adiciona a função de clique
                 >
-                    Participar
+                    Confirmar Compra
                 </Button>
             </div>
         </main>
