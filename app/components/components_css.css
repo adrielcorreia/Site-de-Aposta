@@ -1,0 +1,25 @@
+
+#rifas {
+    background-color: #FFCC80;
+}
+
+#rifasPagamento {
+    background-color: #FFCC80;
+    height: 100vh;
+}
+
+#bilhete {
+    width: 60px;
+    height: 60px;
+    padding-right: 10px;
+}
+
+#button {
+    width: 500px;
+    background-color: #FFB74C;
+    color: white;
+}
+
+.select {
+    width: 180px;
+}

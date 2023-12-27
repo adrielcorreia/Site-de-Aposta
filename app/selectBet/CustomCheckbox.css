@@ -1,0 +1,6 @@
+/* CustomCheckbox.css */
+.custom-checkbox .chip {
+    border-radius: 50%; /* Fazendo o botão arredondado */
+    background-color: white; /* Definindo a cor de fundo como branca */
+    box-shadow: 0px 0px 5px rgba(0,0,0,.2); /* Adicionando sombra */
+}
