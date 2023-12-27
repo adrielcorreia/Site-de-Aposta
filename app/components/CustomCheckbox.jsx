@@ -1,6 +1,7 @@
 // CustomCheckbox.jsx
 import React from "react";
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
+import './components_css.css'
 
 const checkbox = tv({
   slots: {

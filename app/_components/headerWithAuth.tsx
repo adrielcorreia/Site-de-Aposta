@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation"
 import { Link, Avatar } from "@nextui-org/react"
-import { nextAuthOptions } from "../api/auth/[...nextauth]/route"
 import Perfil from "./perfilButton"
 
 export default function HeaderWithAuth(props: { src: string, name: string }) {

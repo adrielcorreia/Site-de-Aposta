@@ -2,6 +2,7 @@
 import React from "react";
 import { CheckboxGroup } from "@nextui-org/react";
 import { CustomCheckbox } from "./CustomCheckbox";
+import './components_css.css'
 
 export default function SelectingRaffle() {
   const [groupSelected, setGroupSelected] = React.useState([]);

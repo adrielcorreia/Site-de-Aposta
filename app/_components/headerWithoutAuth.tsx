@@ -3,7 +3,7 @@ import { Navbar, Image, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dr
 import { useRouter } from "next/navigation"
 
 
-export default function HeaderWithoutAuth() {
+export default function HeaderWithoutAuth(props:{ name: string, src: string }) {
     const router = useRouter()
 
     function handleNavClick(route: string) {

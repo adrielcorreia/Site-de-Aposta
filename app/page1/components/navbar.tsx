@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import { Navbar, Image, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownTrigger, DropdownItem, DropdownMenu, Dropdown, Avatar } from "@nextui-org/react";
 import { AcmeLogo } from "../AcmeLogo.jsx";
@@ -43,8 +45,7 @@ export default function Navbar_1() {
             >
                 Usuario01
                 <Avatar
-                  isBordered
-                  as="button"
+                  isBordered //é bom tirar esse header pq o merge ja vai coisar isso, pq o meu authentication ja tem
                   className="transition-transform"
                   color="success"
                   name="Jason Hughes"
