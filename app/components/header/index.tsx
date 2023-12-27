@@ -20,7 +20,6 @@ export function Header() {
         <NavbarContent className="flex items-center justify-between">
           {/* Profile */}
           <Avatar isBordered color="primary" src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-
           {/* Navigation Links */}
           <div className="flex gap-4">
             {links.map((item, index) => (

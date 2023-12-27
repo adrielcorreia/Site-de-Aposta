@@ -86,7 +86,7 @@ const PremiosForm: React.FC<PremiosFormProps> = ({ adicionarPremio }) => {
           />
         </div>
 
-        <div className="mb-4 rounded-md p-4 bg-blue-200">
+        <div className="mb-4 rounded-md p-4 bg-gray-200">
   <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
     Capa do prêmio
   </label>
