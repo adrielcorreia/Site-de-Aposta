@@ -23,7 +23,7 @@ export default function Home() {
     <main className="max-w-screen-xl mx-auto items-center justify-center p-24">
         <div className='flex justify-end items-center space-x-4 '>
            <Button className="rounded-full bg-blue-500">
-          < GrAdd  className="text-white text-4xl" /><Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/page4">Ver Lista de Prêmios</Link>
+          < GrAdd  className="text-white text-4xl" /><Link className='text-black font-inter font-normal text-opacity-60 leading-normal block ' href="/rewardsList">Ver Lista de Prêmios</Link>
           </Button>
         </div>
       <div>

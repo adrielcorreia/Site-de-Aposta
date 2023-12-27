@@ -9,8 +9,8 @@ export function Header() {
 
   const links = [
     { name: "Dados Básicos", href: "/" },
-    { name: "Prêmio(s)", href: "/page2" },
-    { name: "Opções", href: "/page3" },
+    { name: "Prêmio(s)", href: "/rewards" },
+    { name: "Opções", href: "/options" },
   ];
 
   return (

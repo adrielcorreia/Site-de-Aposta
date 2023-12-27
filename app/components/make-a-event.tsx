@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@nextui-org/react';
@@ -16,6 +18,12 @@ const CountryIcon: React.FC<CountryIconProps> = ({ code, label, icon }) => (
   </div>
 );
 
+const countryOptions = [
+  { code: 'US', label: 'Estados Unidos', icon: <FiFlag /> },
+  { code: 'BR', label: 'Brasil', icon: <FiFlag /> },
+  { code: 'EU', label: 'União Europeia', icon: <FiFlag /> },
+];
+
 export default function EventForm() {
   const router = useRouter();
 
@@ -25,8 +33,6 @@ export default function EventForm() {
   const [numericValue, setNumericValue] = useState('');
   const [ticketValue, setTicketValue] = useState('');
   const [country, setCountry] = useState('US');
-
-  
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -43,14 +49,8 @@ export default function EventForm() {
 
   const handleParticiparClick = () => {
     // Adicione qualquer lógica adicional antes da navegação, se necessário
-    router.push('/page2');
+    router.push('/rewards');
   };
-
-  const countryOptions = [
-    { code: 'US', label: 'Estados Unidos', icon: <FiFlag /> },
-    { code: 'BR', label: 'Brasil', icon: <FiFlag /> },
-    { code: 'EU', label: 'União Europeia', icon: <FiFlag /> },
-  ];
 
   return (
     <div className="layout p-8 shadow-md rounded-lg border border-blue-500 border-opacity-30 bg-white text-black">
@@ -73,24 +73,11 @@ export default function EventForm() {
           <label htmlFor="phoneNumber" className="block mb-2 text-black font-inter text-lg">
             Telefone público para contato:
           </label>
-          <div className="relative flex items-center">
+          <div className="relative flex items-center gap-3">
             <label htmlFor="country" className="sr-only">
               País
             </label>
             <div className="flex items-center">
-              <select
-                id="country"
-                name="country"
-                className="h-full rounded-md border border-black border-opacity-30 bg-opacity-30 bg-white py-0 pl-4 pr-9 text-black focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm"
-                onChange={(e) => setCountry(e.target.value)}
-                value={country}
-              >
-                {countryOptions.map((option) => (
-                 <option key={option.code} value={option.code}>
-                <CountryIcon code={option.code} label={option.label} icon={option.icon} />
-               </option>
-                ))}
-              </select>
               <div className="ml-2">{countryOptions.find((option) => option.code === country)?.icon}</div>
             </div>
             <input

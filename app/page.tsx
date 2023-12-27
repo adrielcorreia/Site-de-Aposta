@@ -1,6 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import { Button } from '@nextui-org/react'
-'use client'
+
 import React from 'react';
 import EventForm from './components/make-a-event';
 import '../app/components/styles/event.css'
@@ -18,4 +20,3 @@ export default function Home() {
     </main>
   );
 }
-
