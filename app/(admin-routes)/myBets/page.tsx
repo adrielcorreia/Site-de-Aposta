@@ -2,7 +2,6 @@
 
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import CarouselComponent from "../../_components/home/carousel";
 import CardComponent from "../../_components/home/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -16,11 +15,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-20 py-30 p-32">
-      <CarouselComponent />
-
       <div className="flex flex-col gap-5 justify-center items-center">
+        <h1 className="text-3xl font-bold">Minhas apostas</h1>
         <div className="w-full flex justify-between items-center">
-          <span className="font-bold text-2xl">Eventos</span>
+          <span className="font-bold text-2xl">Em andamento</span>
 
           <div>
             <Button
@@ -39,11 +37,29 @@ export default function Home() {
         </div>
 
         <CardComponent />
-        <div className="w-full flex justify-end px-5">
-          <Button onClick={() => router.push('makeEvent')} size="lg" color="primary">
-            Criar Evento <FontAwesomeIcon icon={faPlus} />
-          </Button>
+      </div>
+
+      <div className="flex flex-col gap-5 justify-center items-center">
+        <div className="w-full flex justify-between items-center">
+          <span className="font-bold text-2xl">Concluídas</span>
+
+          <div>
+            <Button
+              isIconOnly
+              variant="solid"
+              className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png"
+                width={20}
+                height={20}
+                alt=""
+              />
+            </Button>
+          </div>
         </div>
+
+        <CardComponent />
       </div>
     </div>
   );

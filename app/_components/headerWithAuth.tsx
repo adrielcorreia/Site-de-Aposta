@@ -12,8 +12,8 @@ export default function HeaderWithAuth(props: { src: string, name: string }) {
             
             <div className="flex-1 flex justify-center gap-10">
                 <Link color="foreground" href='/home'>Eventos</Link>
-                <Link color="foreground" href='/mybets'>Minhas apostas</Link>
-                <Link color="foreground" href='/myevents'>Meus eventos</Link>
+                <Link color="foreground" href='/myBets'>Minhas apostas</Link>
+                <Link color="foreground" href='/myEvents'>Meus eventos</Link>
             </div>
 
             <div className="flex-1 flex items-center justify-end gap-10">
