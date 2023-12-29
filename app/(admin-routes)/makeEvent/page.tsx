@@ -18,7 +18,7 @@ export default function MakeEvent() {
         size="lg"
         variant="bordered"
         selectedKey={String(selected)}
-        onSelectionChange={(key: any) => setSelected(key)}
+        onSelectionChange={(key: any) => setSelected(Number(key))}
       >
         <Tab className="w-full" key={1} title="Dados Básicos">
           <MakeEventBasicData />

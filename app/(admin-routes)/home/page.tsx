@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col gap-20 py-30 p-32">
+    <div className="flex flex-col gap-20 p-32">
       <CarouselComponent />
 
       <div className="flex flex-col gap-5 justify-center items-center">

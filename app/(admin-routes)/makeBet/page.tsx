@@ -6,7 +6,7 @@ import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
 export default function Make_a_BetComponent() {
   return (
-    <div className="container mx-auto px-20 pt-10">
+    <div className="container mx-auto p-32">
       <div className="flex flex-row gap-11 grid grid-cols-2 md:grid-cols-2">
         <div>
           <Card shadow="sm" key={1} id="image_color">
