@@ -1,6 +1,6 @@
 "use client";
 
-import SelectingRaffle from "../_components/make-a-bet/selecting_raffle";
+import SelectingRaffle from "../../_components/make-a-bet/selecting_raffle";
 import { createContext, useState, useRef } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 

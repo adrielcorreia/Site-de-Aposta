@@ -11,7 +11,7 @@ export default function HeaderWithAuth(props: { src: string, name: string }) {
             <div className="flex-1"><Avatar size='lg' src="/logo.jpeg"></Avatar></div>
             
             <div className="flex-1 flex justify-center gap-10">
-                <Link color="foreground" href='/events'>Eventos</Link>
+                <Link color="foreground" href='/home'>Eventos</Link>
                 <Link color="foreground" href='/mybets'>Minhas apostas</Link>
                 <Link color="foreground" href='/myevents'>Meus eventos</Link>
             </div>

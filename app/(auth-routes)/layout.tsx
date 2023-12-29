@@ -21,7 +21,7 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
         <>
         <HeaderWithoutAuth />
 
-        <main className="bg-white flex max-w-screen min-h-screen flex-col items-center justify-center">
+        <main className="flex max-w-screen min-h-screen flex-col items-center justify-center">
             {children}
         </main>
         

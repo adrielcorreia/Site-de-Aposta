@@ -1,7 +1,7 @@
 'use client'
 
 import { Textarea, Select, SelectItem } from "@nextui-org/react";
-import { months, years } from "../../makeBet/payment/data";
+import { months, years } from "./data";
 
 export default function TextArea() {
   return (

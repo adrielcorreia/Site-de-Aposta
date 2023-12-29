@@ -1,6 +1,6 @@
 "use client";
 
-import Options from "../../_components/make-a-event/MakeEventOptions";
+import Options from "../../../_components/make-a-event/MakeEventOptions";
 
 export default function MakeEventOptions() {
   return (

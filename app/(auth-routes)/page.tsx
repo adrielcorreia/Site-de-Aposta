@@ -1,18 +1,43 @@
-'use client'
+"use client";
 
-import { Button} from '@nextui-org/react'
-import { useRouter } from 'next/navigation'
+import { Button } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import CarouselComponent from "../_components/home/carousel";
+import CardComponent from "../_components/home/card";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleNavClick = (nav: string) => {
-    router.push(nav, {scroll: false})
-  }
+    router.push(nav);
+  };
 
   return (
-    <div className='flex items-center justify-center p-5 gap-3'>
-      <p className='text-xl'>Você ainda não está logado.</p>
+    <div className="flex flex-col gap-20 py-20 p-32">
+      <CarouselComponent />
+
+      <div className="flex flex-col gap-5 justify-center items-center">
+        <div className="w-full flex justify-between items-center">
+          <span className="font-bold text-2xl">Eventos</span>
+
+          <div>
+            <Button
+              isIconOnly
+              variant="solid"
+              className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png"
+                width={20}
+                height={20}
+                alt=""
+              />
+            </Button>
+          </div>
+        </div>
+
+        <CardComponent />
+      </div>
     </div>
-  )
+  );
 }

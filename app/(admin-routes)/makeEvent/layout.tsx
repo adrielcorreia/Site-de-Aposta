@@ -1,10 +1,10 @@
 import { Inter } from 'next/font/google'
-import '../globals.css'
+import '@/app/globals.css'
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
       <>
-        <main>
+        <main className='p-16'>
             {children}
         </main>
       </>

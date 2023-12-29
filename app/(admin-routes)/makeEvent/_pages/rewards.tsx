@@ -1,6 +1,6 @@
 "use client";
 
-import PremiosForm from "../../_components/make-a-event/PremiosForm";
+import PremiosForm from "../../../_components/make-a-event/PremiosForm";
 import { useState } from "react";
 import { Button } from "@nextui-org/react";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import TextArea from "../../_components/make-a-bet/textArea";
+import TextArea from "../../../_components/make-a-bet/textArea";
 import { Button } from "@nextui-org/react";
 
 export default function Home() {

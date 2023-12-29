@@ -33,12 +33,12 @@ export default function CardComponent() {
   const router = useRouter();
 
   return (
-    <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {
-        arr.map((content:any) => (
-          <div onClick={() => router.push('/makeBet')}>
+        arr.map((content:any, key: number) => (
+          <div key={`card ${key}`} onClick={() => router.push('/makeBet')}>
 
-            <Card className="h-[300px] mr-10 cursor-pointer" role="button">
+            <Card className="h-[300px] cursor-pointer" role="button">
               <CardHeader className="absolute z-10 top-1 flex-col !items-start">
                 <p className="text-tiny text-white/60 uppercase font-bold">{content.category}</p>
                 <h4 className="text-white font-medium text-large">{content.title}</h4>
