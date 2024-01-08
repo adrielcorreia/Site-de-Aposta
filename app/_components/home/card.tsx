@@ -1,7 +1,10 @@
 "use client";
 
+import { AuthContext } from "@/app/contexts/auth";
 import { Card, CardHeader, CardBody, CardFooter, Image, Button } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
+import { useContext, useEffect } from "react";
+import { api } from "@/services/api";
 
 const arr: object[] = [
   {
@@ -30,7 +33,21 @@ const arr: object[] = [
 ]
 
 export default function CardComponent() {
+  const { users, addUser }: any = useContext(AuthContext)
   const router = useRouter();
+
+  useEffect(() => {
+    async function loadItems() {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
+      const response = await api.get('/users')
+      addUser(response.data)
+    }
+
+    loadItems()
+    console.log(users)
+  }, []);
+  
 
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -56,7 +73,6 @@ export default function CardComponent() {
           </div>
         ))
       }
-
     </div>
   );
 }

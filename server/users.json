@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "name": "Augusto Cesar",
+            "email": "augusto@teste.com",
+            "events": [
+                {
+                    "id": "toyota",
+                    "category": "Veículos",
+                    "description": "um carro toyota",
+                    "title": "Toyota SW4",
+                    "src": "https://1.bp.blogspot.com/-4tgiGIrObp8/XpUKi58zxyI/AAAAAAAAktk/txMr_S-qL_IDmN1X8gDfVMoJQMEig31ugCLcBGAsYHQ/s1600/B0921596-83B4-4F18-9808-D87C2C6FF36F.jpeg"
+                }
+            ],
+            "bets": []
+        }
+    ]
+}

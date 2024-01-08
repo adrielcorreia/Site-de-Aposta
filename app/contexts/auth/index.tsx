@@ -1,18 +1,19 @@
 'use client'
 
+import { SessionProvider } from "next-auth/react";
 import { createContext, useState } from "react";
 
-type UserProps = {
+export interface User {
     id?: number,
-    name: string,
-    token?: string
+    email: string,
+    name: string
 }
 
 export const AuthContext = createContext({})
 export const AuthProvider = ({ children } : { children: React.ReactNode }) => {
-    const [users, setUsers] = useState<UserProps[]>([])
+    const [users, setUsers] = useState<User[]>([])
 
-    const addUser = (user: any) => {
+    const addUser = (user: User) => {
         setUsers([...users, user])
     }
 
@@ -23,7 +24,9 @@ export const AuthProvider = ({ children } : { children: React.ReactNode }) => {
                 addUser
             }}
         >
-            <>{children}</>
+            <SessionProvider>
+                {children}
+            </SessionProvider>
         </AuthContext.Provider>
     )
 }
