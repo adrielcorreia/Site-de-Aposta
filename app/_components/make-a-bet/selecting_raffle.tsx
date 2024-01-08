@@ -47,17 +47,17 @@ export default function SelectingRaffle() {
         <div className="flex gap-5 w-full">
           <div className="w-full">
             <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-xl">Valor do Ticket </p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">R$ {raffleValue.toFixed(2)}</p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-2xl">R$ {raffleValue.toFixed(2)}</p>
           </div>
 
           <div className="w-full">
             <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-xl">Quantidade</p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">{groupSelected.length}</p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-2xl">{groupSelected.length}</p>
           </div>
 
           <div className="w-full">
             <p className="bg-primary text-white rounded-t-lg font-bold flex justify-center p-2 text-xl">Total</p>
-            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-3xl">R$ {(groupSelected.length * raffleValue).toFixed(2)}</p>
+            <p className="bg-slate-100 border-solid border-1 border-stone-700 font-bold text-black flex justify-center p-10 text-2xl">R$ {(groupSelected.length * raffleValue).toFixed(2)}</p>
           </div>
         </div>
           

@@ -1,13 +1,16 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
 import CarouselComponent from "../../_components/home/carousel";
 import CardComponent from "../../_components/home/card";
+import { Button } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { AuthContext } from "@/app/contexts/auth";
 
 export default function Home() {
+  const { users, addUser }: any = useContext(AuthContext)
   const router = useRouter();
 
   const handleNavClick = (nav: string) => {
@@ -16,6 +19,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-20 p-32">
+      {
+        users.map((user: any) => (
+          <>
+            <p>{user.id}</p>
+            <p>{user.name}</p>
+          </>
+        ))
+      }
+      <Button onClick={() => addUser({name: 'adriel', token: '123'})}>Add User</Button>
       <CarouselComponent />
 
       <div className="flex flex-col gap-5 justify-center items-center">

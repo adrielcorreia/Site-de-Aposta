@@ -2,7 +2,6 @@ import { getServerSession } from "next-auth";
 import { ReactNode } from "react";
 import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
-import Perfil from "../_components/perfilButton";
 import HeaderWithAuth from "../_components/headerWithAuth";
 
 interface PrivateLayoutProps {
